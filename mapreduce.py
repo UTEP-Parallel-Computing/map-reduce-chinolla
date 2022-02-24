@@ -48,7 +48,7 @@ def mapreduce(thread):
 
 
 
-for i in range(1, 4):
+for i in range(1, 2):
     print(mapreduce(i))
     print('thread_num:', i)
 
