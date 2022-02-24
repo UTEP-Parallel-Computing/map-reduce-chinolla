@@ -23,7 +23,6 @@ def countWords(word, filename):
 
 def mapreduce(thread):
     start_time = time.time()
-    lock = p.lock
     maindict = pymp.shared.dict()
     
     # the main dictionary that the function will return, sets all values to zero for all words
@@ -31,7 +30,7 @@ def mapreduce(thread):
             maindict[word] = 0
 
     with pymp.Parallel(thread) as p:
-        
+        lock = p.lock
         # sets the local dictionary used by threads, all values to 0
         threaddict = dict()
         for word in listofWords:
