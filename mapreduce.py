@@ -11,9 +11,8 @@ listofWords = ('hate', 'love', 'death', 'night', 'sleep', 'time', 'henry', 'haml
 # function returns the count (int) of occurences of a word in a file
 def countWords(word, filename):
     count = 0
-    with open(filename, 'r') as file:
-        for line in file:
-            count += file.count(word)
+    data = filename.read()
+    count = data.count(word)
     return count 
 
 
