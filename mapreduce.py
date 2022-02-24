@@ -1,9 +1,6 @@
 # Cristobal Chinolla
 # Lab 2 Map Reduce
 
-
-
-import re
 import pymp
 import time
 
