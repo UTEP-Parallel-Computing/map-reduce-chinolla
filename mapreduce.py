@@ -1,6 +1,6 @@
 # Cristobal Chinolla
 # Lab 2 Map Reduce
-
+import re
 import pymp
 import time
 
@@ -11,8 +11,9 @@ listofWords = ('hate', 'love', 'death', 'night', 'sleep', 'time', 'henry', 'haml
 # function returns the count (int) of occurences of a word in a file
 def countWords(word, filename):
     count = 0
-    data = filename.read()
-    count = data.count(word)
+    with open(filename, 'r') as file:
+        for line in file:
+            count += len(re.findall(word, line))
     return count 
 
 
