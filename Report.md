@@ -1,36 +1,29 @@
-# Parallel-Computing-MapReduce
-For this assignment you will write a parallel map reduce program. The program will search for a set 
-of words among a set of documents that constitute the works of Shakespeare. The set of words is listed 
-below. The assignment should use the map-reduce design pattern to split up the work. You should have
-functions that count the number of a specific word within a specific document and combine the individual
-word counts.
+# Cristobal Chinolla
 
-The program should output the total instances of all words and the counts for each individual word
+# Problems Encountered:
 
-Word list:
-hate, love, death, night, sleep, time, henry, hamlet, you, my, blood, poison, macbeth, king, heart, honest
+    The main problem I encountered was creating a function that counted the words in a file for all files. During initial testing, I was using .count(word) and it was working just fine for me.
+    I still have to test on a different computer so I had to push what I thought would work then test it. As soon as i would try to run my file in the VM, .count() would no longer work. I spent a lot of time trying to figure out why it wasnt working and even used .read() to read the files
 
-Once completed the repository should contain your code, a short report, and any instructions needed to run your code.
+    The other problem I had is that my main dictionary kept getting reset and the results were not accurate. I realized this was becuase I had each thread in pymp.Parallel reseting it. So I had to move it outside.
 
-Important note:
-You should initialize the shared global dictionary inside your parallel section, there's a bug in the
-OpenMP system that sometimes causes a program to freeze when initializing outside the parallel section.
+# Time Spent:
 
-Hints: 
-* Its easier to load all the files containing text serial before entering the parallel processing region
-* Some of the variables will need to be locked before updating, otherwise a difficult to debug race condition may occure
-* This will take multiple loops (functions would be better though), you can iterate over the list of words
+    I spent a lot less time on this lab than I did on last lab. Mainly because I felt like the objective was a lot easier to understand.
 
-## Requirements 
+    Probably around 5 hours 
 
-Write a serial matrix multiply program in Python. The could should use reasonable decomposition, use reasonable variable names, and should generally follow good coding standards. Important, your assignment should include your name. 
+# Performance Measurements: 
+    A single thread took around 2.60 seconds
 
-The program shall count the number of each instances of each word for the set of documents, and the total of count of all words in the list
+    When completed with anything above 2 threads, the time to complete was around 1.01 - 1.08 seconds
 
-The program shall use PyMP to compute the number of words in parallel
+# Analysis:
 
-The program shall time how long overall operation takes and how long the word count and file reading operations take individually
+    I figured that the difference between time completions using different amounts of threads would not be that different since each thread has to wait when using the lock and acquire
 
-The program shall include any necessary instructions to properly run the program 
+# CPU Info
 
-The assignment shall be submitted through github 
+    Intel(R) Core(TM) i7-8650U CPU @ 1.90GHz
+          4      36     216
+
