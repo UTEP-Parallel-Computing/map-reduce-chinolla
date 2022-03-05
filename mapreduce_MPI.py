@@ -2,6 +2,7 @@
 # Lab 2 Map Reduce
 import re
 from numpy import size
+from mpi4py import MPI
 import time
 
 listofFiles = ('shakespeare1.txt', 'shakespeare2.txt', 'shakespeare3.txt', 'shakespeare4.txt',
