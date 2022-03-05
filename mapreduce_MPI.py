@@ -2,6 +2,7 @@
 # Lab 2 Map Reduce
 from itertools import count
 import re
+import timeit
 from mpi4py import MPI
 import time
 
@@ -55,7 +56,7 @@ def mapReduce(files):
 
 
 def parallel(files):
-
+    start = timeit.default_timer()
     # get the world communicator
     comm = MPI.COMM_WORLD
 
@@ -83,6 +84,12 @@ def parallel(files):
                 recvd_count = comm.recv(source=process, tag=1)
                 print(f'Thread 0 recieved from {process}')
                 localDict = updateDict(localDict, recvd_count)
+        
+        end = timeit.default_timer()
+        totaltime = end - start
+        print(f"Number of Threads: {size}")
+        print(f"Total Parallel Operation Time: {totaltime}")
+
     else:
         localList = comm.recv(source=0, tag=0)
         print(f"Thread {rank} received {localList}.")
