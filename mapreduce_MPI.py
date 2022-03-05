@@ -2,7 +2,6 @@
 # Lab 2 Map Reduce
 from itertools import count
 import re
-from numpy import size
 from mpi4py import MPI
 import time
 
