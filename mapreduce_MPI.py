@@ -1,5 +1,6 @@
 # Cristobal Chinolla
 # Lab 2 Map Reduce
+from itertools import count
 import re
 from numpy import size
 from mpi4py import MPI
@@ -12,11 +13,11 @@ listofWords = ('hate', 'love', 'death', 'night', 'sleep', 'time', 'henry',
 
 
 # function returns the count (int) of occurences of a word in a file
-def countWords(word, filename):
+def countWords(word, dictionary):
     count = 0
-    with open(filename, 'r') as file:
-        for line in file:
-            count += len(re.findall(word, line))
+    for keys in dictionary.keys():
+        count += len(re.findall(word, word))
+        dictionary[keys] += count
     return count
 
 
@@ -31,7 +32,7 @@ def makeLocalDict(file):
 
     for word in filelines:
         for word in listofWords:
-            localdict[word] += countWords(word, listofFiles[file])
+            localdict[word] += countWords(word, localdict)
 
     return localdict
 
