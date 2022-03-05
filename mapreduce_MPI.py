@@ -96,5 +96,5 @@ def parallel(files):
     
 def main():
     parallel(listofFiles)
-
-main()
+if __name__=="__main__":
+    main()
