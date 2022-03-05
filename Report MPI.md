@@ -16,13 +16,21 @@
 
 
 # Performance Measurements: 
-    A single thread took around 2.60 seconds
 
-    When completed with anything above 2 threads, the time to complete was around 1.01 - 1.08 seconds
+    16 threads - 63.72s
+    8 threads - 31.82s
+    4 threads - 30.25s
+    3 threads - 28.64s
+    2 threads - 24.49s
+    1 thread -  37.08s
 
 # Analysis:
 
-    I figured that the difference between time completions using different amounts of threads would not be that different since each thread has to wait when using the lock and acquire
+    My implentation using MPI over OpenMP took significantly longer to finish the same task. I am not sure if it is because of MPI or if my implementation was just inefficient (probably the second one)
+
+    As far as the analysis for MPI, I noticed that if the number of threads was greater than the number of files (8), this actually increased the total time to complete. I assume this is because the excess amount of threads have nothing to do and increase the overhead time.
+
+    I also noticed a pattern. When the threads:amount of files reached a specific ratio, (for example 2 threads), where there were less threads and each thread had an even amount of files. The run time was lower.
 
 # CPU Info
 
