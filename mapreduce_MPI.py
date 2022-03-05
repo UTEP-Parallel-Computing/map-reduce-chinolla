@@ -82,11 +82,10 @@ def parallel(files):
 
         for process in range(1,size):
                 recvd_count = comm.recv(source=process, tag=1)
-               
                 localDict = updateDict(localDict, recvd_count)
     else:
         localList = comm.recv(source=0, tag=0)
-        print(f"Thread {rank} received {localList}.")
+        print("Thread {rank} received {localList}.")
         
         # counts file
         localDict = mapReduce(localList)
