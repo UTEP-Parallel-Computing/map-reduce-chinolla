@@ -93,6 +93,4 @@ def parallel(files):
         # send data back to thread 0
         comm.send(localDict, dest=0, tag=1)
     
-def main():
-    parallel(listofFiles)
-main()
+parallel(listofFiles)
