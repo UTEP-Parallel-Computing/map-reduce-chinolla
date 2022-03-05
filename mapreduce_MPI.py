@@ -29,7 +29,7 @@ def makeLocalDict(file):
     filelines = text_file.readlines()
     text_file.close()
 
-    for line in filelines:
+    for word in filelines:
         for word in listofWords:
             localdict[word] += countWords(word, listofFiles[file])
 
