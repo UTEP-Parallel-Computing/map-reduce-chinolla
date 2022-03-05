@@ -39,6 +39,9 @@
 
     I also noticed a pattern. When the threads:amount of files reached a specific ratio, (for example 2 threads), where there were
      less threads and each thread had an even amount of files. The run time was lower.
+     
+    ![Screen Shot 2022-03-04 at 9 43 50 PM](https://user-images.githubusercontent.com/98130863/156868261-2d871613-fe50-4fe5-a683-366efa0a0024.png)
+
 
 # CPU Info
 
